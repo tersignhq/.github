@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="Tersign — the evidence layer for the agent economy">
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.9  0 0 0 0 0.85  0 0 0 0 0.75  0 0 0 0.035 0"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141109"/>
+      <stop offset="1" stop-color="#0e0c09"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#ink)"/>
+  <rect width="1200" height="300" filter="url(#grain)" opacity="0.5"/>
+
+  <!-- hairline rules -->
+  <rect x="60" y="60" width="1080" height="1" fill="#d9a441" opacity="0.35"/>
+  <rect x="60" y="240" width="1080" height="1" fill="#d9a441" opacity="0.35"/>
+
+  <!-- seal -->
+  <g transform="translate(120,150)">
+    <circle r="34" fill="none" stroke="#d9a441" stroke-width="7"/>
+    <circle r="11" fill="#d9a441"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="200" y="138" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="64" letter-spacing="14" fill="#eae3d3">TERSIGN</text>
+  <text x="204" y="185" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" letter-spacing="6" fill="#d9a441">THE EVIDENCE LAYER FOR THE AGENT ECONOMY</text>
+
+  <!-- chain motif -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#8a8172">
+    <rect x="742" y="207" width="76" height="26" fill="none" stroke="#8a8172" stroke-width="1" opacity="0.7"/>
+    <text x="754" y="224">genesis</text>
+    <line x1="818" y1="220" x2="846" y2="220" stroke="#8a8172" stroke-width="1" opacity="0.7"/>
+    <rect x="846" y="207" width="70" height="26" fill="none" stroke="#8a8172" stroke-width="1" opacity="0.7"/>
+    <text x="858" y="224">0x…sig</text>
+    <line x1="916" y1="220" x2="944" y2="220" stroke="#8a8172" stroke-width="1" opacity="0.7"/>
+    <rect x="944" y="207" width="196" height="26" fill="none" stroke="#d9a441" stroke-width="1.2"/>
+    <text x="956" y="224" fill="#d9a441">head · counter-signed</text>
+  </g>
+</svg>
