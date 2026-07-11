@@ -22,7 +22,7 @@ dispute verdict ───────────────┘            │
 | ⚖️ **Dispute-ready** | deterministic triage + jury-ready evidence envelopes for any arbitration venue |
 | 🔍 **Trustless verification** | no account, no API key — [verify a receipt yourself](https://tersign-ledger.kevinn-zhang.workers.dev/verify) |
 
-**Live:** [ledger + public dashboard](https://tersign-ledger.kevinn-zhang.workers.dev) · **SDK:** `@tersign/assure` *(TypeScript — public release in progress)* · **Python:** `tersign` *(reserved)*
+**Live:** [ledger + public dashboard](https://tersign-ledger.kevinn-zhang.workers.dev) · **SDK:** [`npm i tersign`](https://www.npmjs.com/package/tersign) *(TypeScript, provenance-attested)* · **MCP:** [`io.github.tersignhq/evidence`](https://registry.modelcontextprotocol.io/?search=tersign) *(official registry)* · **Python:** `tersign` *(reserved)*
 
 ---
 
