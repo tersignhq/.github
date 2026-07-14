@@ -55,8 +55,9 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 
 ## The Register, Today
 
-- **Census** — 1,500+ hash-chained observations across 1,000+ x402 seller endpoints, probed hourly and autonomously; [live count](https://prober.tersign.ai/v1/prober/stats)
-- **Compliance** — EU Art-226b minimal tier · EN 16931 full tier · HK IRO s.51C retention · `ActionRecordV1` agent action records mapped to EU AI Act Art 50 (binding 2026-08-02)
+- **Census** — 2,500+ hash-chained observations across 1,100+ x402 seller endpoints, probed hourly and autonomously; [live count](https://prober.tersign.ai/v1/prober/stats)
+- **Compliance** — EU Art-226b minimal tier · EN 16931 full tier · HK IRO s.51C retention · `ActionRecordV1` agent action records mapped to EU AI Act Art 50 (binding 2026-08-02) · `compliance-fields` extension proposed upstream ([x402#2853](https://github.com/x402-foundation/x402/pull/2853))
+- **Conformance** — RFC 8785 (JCS) canonical serialization · keccak256 digests · [published byte-level cross-implementation vectors](https://github.com/tersignhq/tersign-js/blob/main/test/fixtures/canonical-vectors.json): reproduce the bytes and your implementation is conformant, in any language
 - **Lifecycle** — refunds chained via `refundOf` · disputes v0 with objective reason codes · idempotency stores (memory + Cloudflare D1) · evidence packs (`format=art50`, `format=safr` beta) · Internet Court envelopes fit the 5,000-char slot
 - **Discovery** — [ARD catalog](https://tersign.ai/.well-known/ai-catalog.json) served per the 11-vendor June 2026 spec · [llms.txt](https://raw.githubusercontent.com/tersignhq/tersign-js/main/llms.txt)
 
@@ -74,6 +75,7 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 | Envelope API | `GET https://tersign.ai/v1/receipts/{digest}/envelope?venue={internet-court\|kleros\|uma\|generic}` |
 | Stats · signer | `GET …/v1/stats` · `GET …/v1/ledger` (base `https://tersign.ai`) |
 | llms.txt | `https://raw.githubusercontent.com/tersignhq/tersign-js/main/llms.txt` |
+| Conformance vectors (RFC 8785 + keccak256) | `https://github.com/tersignhq/tersign-js/blob/main/test/fixtures/canonical-vectors.json` |
 | Genesis verify | `npx tersign verify 0xe5874f1ffe87f0a6dd9eb157730f67b86ee4538b125fe30fcc4e165213dd3fc4 --ledger https://tersign.ai` |
 | PyPI | `tersign` reserved (stub — install from npm) |
 
