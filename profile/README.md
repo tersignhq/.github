@@ -51,13 +51,14 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 | **SDK** | `npm i tersign` — `withAssure()` wraps any x402 fetch handler; receipts, compliance records, refunds, disputes. Source: [tersignhq/tersign-js](https://github.com/tersignhq/tersign-js), built and published via trusted-publishing CI |
 | **MCP server** | `npx tersign` (stdio) — registry `io.github.tersignhq/evidence`, eight tools from `issue_receipt` to `adjudicate_dispute` |
 | **Agent skill** | [`tersign-evidence`](https://github.com/tersignhq/skills) — the same discipline as a drop-in skill |
+| **Conformance suite** | [evidence-record-conformance](https://github.com/tersignhq/evidence-record-conformance) — two-sided vectors for the evidence-record layer (independence, completeness, existence, phase); stdlib verifier, live Bitcoin-anchored vectors |
 | **Live ledger** | [tersign.ai](https://tersign.ai) — public verify page, stats, venue envelopes |
 
 ## The Register, Today
 
 - **Census** — 2,500+ hash-chained observations across 1,100+ x402 seller endpoints, probed hourly and autonomously; [live count](https://prober.tersign.ai/v1/prober/stats)
 - **Compliance** — EU Art-226b minimal tier · EN 16931 full tier · HK IRO s.51C retention · `ActionRecordV1` agent action records mapped to EU AI Act Art 50 (binding 2026-08-02) · `compliance-fields` extension proposed upstream ([x402#2853](https://github.com/x402-foundation/x402/pull/2853))
-- **Conformance** — RFC 8785 (JCS) canonical serialization · keccak256 digests · [published byte-level cross-implementation vectors](https://github.com/tersignhq/tersign-js/blob/main/test/fixtures/canonical-vectors.json): reproduce the bytes and your implementation is conformant, in any language
+- **Conformance** — RFC 8785 (JCS) canonical serialization · keccak256 digests · [published byte-level cross-implementation vectors](https://github.com/tersignhq/tersign-js/blob/main/test/fixtures/canonical-vectors.json): reproduce the bytes and your implementation is conformant, in any language · [evidence-record suite](https://github.com/tersignhq/evidence-record-conformance): the layer criteria as runnable two-sided vectors
 - **Lifecycle** — refunds chained via `refundOf` · disputes v0 with objective reason codes · idempotency stores (memory + Cloudflare D1) · evidence packs (`format=art50`, `format=safr` beta) · Internet Court envelopes fit the 5,000-char slot
 - **Discovery** — [ARD catalog](https://tersign.ai/.well-known/ai-catalog.json) served per the 11-vendor June 2026 spec · [llms.txt](https://raw.githubusercontent.com/tersignhq/tersign-js/main/llms.txt)
 
