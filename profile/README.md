@@ -23,7 +23,9 @@ npx tersign verify 0xe5874f1ffe87f0a6dd9eb157730f67b86ee4538b125fe30fcc4e165213d
 ```
 
 ```text
-ledger: counter-signed OK (seller tersign-first, seq 1 …) VALID
+ledger:    https://tersign.ai
+           counter-signed OK (seller tersign-first, seq 1, ledger key 0x9d38BA84730271eb27Ac9bD4Bd2620c08dB4FDa6)
+VALID
 ```
 
 <sub>Genesis receipt, seq 1, on the production chain. Local EIP-712 signature recovery plus a public chain check. No account. No API key.</sub>
@@ -49,7 +51,7 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 | Surface | Route |
 |---|---|
 | **SDK** | `npm i tersign` — `withAssure()` wraps any x402 fetch handler; receipts, compliance records, refunds, disputes. Source: [tersignhq/tersign-js](https://github.com/tersignhq/tersign-js), built and published via trusted-publishing CI |
-| **MCP server** | `npx tersign` (stdio) — registry `io.github.tersignhq/evidence`, eight tools from `issue_receipt` to `adjudicate_dispute` |
+| **MCP server** | `npx tersign` (stdio) — registry `io.github.tersignhq/evidence`, nine tools from `issue_receipt` to `adjudicate_dispute` |
 | **Agent skill** | [`tersign-evidence`](https://github.com/tersignhq/skills) — the same discipline as a drop-in skill |
 | **Conformance suite** | [evidence-record-conformance](https://github.com/tersignhq/evidence-record-conformance) — two-sided vectors for the evidence-record layer (independence, completeness, existence, phase); stdlib verifier, live Bitcoin-anchored vectors |
 | **Live ledger** | [tersign.ai](https://tersign.ai) — public verify page, stats, venue envelopes |
@@ -58,9 +60,9 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 
 - **Census** — hash-chained observations across the live x402 seller catalog, probed autonomously; the numbers are served live, never quoted stale: [live count](https://prober.tersign.ai/v1/prober/stats)
 - **Export packs (beta)** — the formats the ledger actually serves: `format=art226b` (EU VAT) · `format=s51c` (HK IRO s.51C — a records duty that binds today) · `format=art50` (carries the content and time of a disclosure, counter-signed rather than self-reported) · `format=safr` (alignment mapping) · `format=full` · `compliance-fields` extension under review upstream ([x402#2853](https://github.com/x402-foundation/x402/pull/2853)) and referenced in the x402 TSC's evidence-record charter agenda ([tsc#4](https://github.com/x402-foundation/tsc/issues/4))
-- **Conformance** — RFC 8785 (JCS) canonical serialization · keccak256 digests · [published byte-level cross-implementation vectors](https://github.com/tersignhq/tersign-js/blob/main/test/fixtures/canonical-vectors.json): reproduce the bytes and your implementation is conformant, in any language · [evidence-record suite](https://github.com/tersignhq/evidence-record-conformance): the layer criteria as runnable two-sided vectors
+- **Conformance** — RFC 8785 (JCS) canonical serialization · keccak256 digests · [published byte-level cross-implementation vectors](https://github.com/tersignhq/tersign-js/blob/main/test/fixtures/canonical-vectors.json) · [evidence-record suite](https://github.com/tersignhq/evidence-record-conformance): 60 two-sided vectors across 10 pinned criterion kinds (2026-08-26), every vector decided identically by two engines (Python stdlib · TypeScript) plus an off-corpus differential harness, on every CI run. Externally exercised, on the record: reproduced byte-identically from the IETF `web-bot-auth` list ([Songbo Bu, 2026-08-10](https://mailarchive.ietf.org/arch/msg/web-bot-auth/8JVz3WDXgmS9W71Az_oALXM5cW4/), against `46ad663`) · published mutation-adequacy re-grade by [@Rul1an](https://github.com/tersignhq/evidence-record-conformance/issues/1#issuecomment-5416529673) (2026-08-25, at `0e560c1`): 11 declared mutants killed, 0 survived · anchor preimages recomputed from a separate implementation ([#3](https://github.com/tersignhq/evidence-record-conformance/issues/3)) · four externally contributed vector classes ([CONTRIBUTORS.md](https://github.com/tersignhq/evidence-record-conformance/blob/main/CONTRIBUTORS.md))
 - **Lifecycle** — refunds chained via `refundOf` · disputes v0 with objective reason codes · idempotency stores (memory + Cloudflare D1) · evidence packs (`format=art50`, `format=safr` beta) · Internet Court envelopes fit the 5,000-char slot
-- **Discovery** — [ARD catalog](https://tersign.ai/.well-known/ai-catalog.json) served per the 11-vendor June 2026 spec · [llms.txt](https://raw.githubusercontent.com/tersignhq/tersign-js/main/llms.txt)
+- **Discovery** — [ARD catalog](https://tersign.ai/.well-known/ai-catalog.json) served at the standard `/.well-known` path · [llms.txt](https://raw.githubusercontent.com/tersignhq/tersign-js/main/llms.txt)
 
 <details open>
 <summary><b>Machine Surfaces</b> — canonical identifiers and endpoints for agents; copy verbatim</summary>
@@ -70,7 +72,7 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 | npm package | `tersign` — `npm i tersign` (MIT, provenance-attested) |
 | MCP registry | `io.github.tersignhq/evidence` (active) — start: `npx tersign` (stdio) |
 | MCP env | required: `TERSIGN_SELLER_KEY` · optional: `TERSIGN_LEDGER_URL`, `TERSIGN_LEDGER_API_KEY`, `TERSIGN_LEDGER_SELLER_ID`, `TERSIGN_ISSUER_NAME`, `TERSIGN_ISSUER_JURISDICTION` |
-| MCP tools | `issue_receipt` · `verify_receipt` · `verify_compliance_record` · `record_refund` · `open_dispute` · `submit_dispute_evidence` · `adjudicate_dispute` · `get_dispute` |
+| MCP tools | `issue_receipt` · `verify_receipt` · `verify_compliance_record` · `record_disclosure` · `record_refund` · `open_dispute` · `submit_dispute_evidence` · `adjudicate_dispute` · `get_dispute` |
 | ARD catalog | `https://tersign.ai/.well-known/ai-catalog.json` |
 | Verify API | `GET https://tersign.ai/v1/receipts/{digest}/verify` |
 | Envelope API | `GET https://tersign.ai/v1/receipts/{digest}/envelope?venue={internet-court\|kleros\|uma\|generic}` |
