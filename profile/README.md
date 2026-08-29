@@ -44,13 +44,15 @@ flowchart LR
     L --> V["venue envelope<br/>Internet Court · Kleros ERC-1497 · UMA"]
 ```
 
+Since 2026-08-28 every anchor carries a **chain commitment** — an accumulator folded over each counter-signed link from seq 1 — so one anchored digest commits to the whole prefix. That is existence *and* no-omission for every record up to the covered sequence, not merely a claim about the latest one: a truncated or substituted prefix fails even though every signature in it still recovers.
+
 Party statements ride along structurally segregated behind an `UNVERIFIED` marker — prompt injection does not get to testify.
 
 ## Get on the Record
 
 | Surface | Route |
 |---|---|
-| **SDK** | `npm i tersign` — `withAssure()` wraps any x402 fetch handler; receipts, compliance records, refunds, disputes. Source: [tersignhq/tersign-js](https://github.com/tersignhq/tersign-js), built and published via trusted-publishing CI |
+| **SDK** | `npm i tersign` — `withAssure()` wraps any x402 fetch handler; receipts, action records, refunds, disputes. Source: [tersignhq/tersign-js](https://github.com/tersignhq/tersign-js), built and published via trusted-publishing CI |
 | **MCP server** | `npx tersign` (stdio) — registry `io.github.tersignhq/evidence`, nine tools from `issue_receipt` to `adjudicate_dispute` |
 | **Agent skill** | [`tersign-evidence`](https://github.com/tersignhq/skills) — the same discipline as a drop-in skill |
 | **Conformance suite** | [evidence-record-conformance](https://github.com/tersignhq/evidence-record-conformance) — two-sided vectors for the evidence-record layer (independence, completeness, existence, phase); stdlib verifier, live Bitcoin-anchored vectors |
@@ -71,7 +73,7 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 |---|---|
 | npm package | `tersign` — `npm i tersign` (MIT, provenance-attested) |
 | MCP registry | `io.github.tersignhq/evidence` (active) — start: `npx tersign` (stdio) |
-| MCP env | required: `TERSIGN_SELLER_KEY` · optional: `TERSIGN_LEDGER_URL`, `TERSIGN_LEDGER_API_KEY`, `TERSIGN_LEDGER_SELLER_ID`, `TERSIGN_ISSUER_NAME`, `TERSIGN_ISSUER_JURISDICTION` |
+| MCP env | all optional. `TERSIGN_SELLER_KEY` overrides key resolution; without it the first call self-provisions a signer-keyed account (OS keychain, else `~/.tersign/signer.key`). Also: `TERSIGN_LEDGER_URL`, `TERSIGN_LEDGER_API_KEY`, `TERSIGN_LEDGER_SELLER_ID`, `TERSIGN_ISSUER_NAME`, `TERSIGN_ISSUER_JURISDICTION` |
 | MCP tools | `issue_receipt` · `verify_receipt` · `verify_compliance_record` · `record_disclosure` · `record_refund` · `open_dispute` · `submit_dispute_evidence` · `adjudicate_dispute` · `get_dispute` |
 | ARD catalog | `https://tersign.ai/.well-known/ai-catalog.json` |
 | Verify API | `GET https://tersign.ai/v1/receipts/{digest}/verify` |
@@ -80,7 +82,8 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 | llms.txt | `https://raw.githubusercontent.com/tersignhq/tersign-js/main/llms.txt` |
 | Conformance vectors (RFC 8785 + keccak256) | `https://github.com/tersignhq/tersign-js/blob/main/test/fixtures/canonical-vectors.json` |
 | Genesis verify | `npx tersign verify 0xe5874f1ffe87f0a6dd9eb157730f67b86ee4538b125fe30fcc4e165213dd3fc4 --ledger https://tersign.ai` |
-| PyPI | `tersign` reserved (stub — install from npm) |
+| PyPI | `tersign` — `pip install tersign` (MIT, trusted-publishing OIDC). Offline verifier: chains, chain commitments, evidence bundles. Zero dependencies, standard library only. Source: [tersignhq/tersign-py](https://github.com/tersignhq/tersign-py) |
+| Bundle verifier (out-of-band) | `https://tersign.ai/verify/v1/verify_bundle.py` · `keccak.py` · `secp256k1.py` · `SHA256SUMS`. Fetch the checker from here rather than trusting the copy inside a bundle you were handed |
 
 </details>
 
