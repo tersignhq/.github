@@ -24,11 +24,12 @@ npx tersign verify 0xe5874f1ffe87f0a6dd9eb157730f67b86ee4538b125fe30fcc4e165213d
 
 ```text
 ledger:    https://tersign.ai
-           counter-signed OK (seller tersign-first, seq 1, ledger key 0x9d38BA84730271eb27Ac9bD4Bd2620c08dB4FDa6)
-VALID
+           reports: found, counter-signed chain intact (seller tersign-first, seq 1, ledger key 0x9d38BA84730271eb27Ac9bD4Bd2620c08dB4FDa6) — not checked locally
+           commitment: seq ≤ 13 committed (acc 0xfc831c0f…) — confirmed block 964428
+VALID (ledger-reported) — https://tersign.ai reports the record and its counter-signed chain; nothing was verified locally
 ```
 
-<sub>Genesis receipt, seq 1, on the production chain. Local EIP-712 signature recovery plus a public chain check. No account. No API key.</sub>
+<sub>Genesis receipt, seq 1, on the production chain. A digest is a lookup: the ledger reports the record, its chain position and the anchored commitment covering it. To recompute on your machine, verify a receipt file or an evidence bundle offline. No account. No API key.</sub>
 
 ## Chain of Custody
 
