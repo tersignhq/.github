@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/tersign"><img src="https://img.shields.io/npm/v/tersign?style=flat-square" alt="npm version"></a>
-  <img src="https://img.shields.io/npm/l/tersign?style=flat-square" alt="license MIT">
+  <img src="https://img.shields.io/npm/l/tersign?style=flat-square" alt="license Apache-2.0">
   <img src="https://img.shields.io/badge/provenance-attested-brightgreen?style=flat-square" alt="npm provenance attested">
   <img src="https://img.shields.io/badge/MCP-io.github.tersignhq%2Fevidence-blue?style=flat-square" alt="MCP registry io.github.tersignhq/evidence">
 </p>
@@ -72,7 +72,7 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 
 | Surface | Value |
 |---|---|
-| npm package | `tersign` — `npm i tersign` (MIT, provenance-attested) |
+| npm package | `tersign` — `npm i tersign` (Apache-2.0, provenance-attested) |
 | MCP registry | `io.github.tersignhq/evidence` (active) — start: `npx tersign` (stdio) |
 | MCP env | all optional. `TERSIGN_SELLER_KEY` overrides key resolution; without it the first call self-provisions a signer-keyed account (OS keychain, else `~/.tersign/signer.key`). Also: `TERSIGN_LEDGER_URL`, `TERSIGN_LEDGER_API_KEY`, `TERSIGN_LEDGER_SELLER_ID`, `TERSIGN_ISSUER_NAME`, `TERSIGN_ISSUER_JURISDICTION` |
 | MCP tools | `issue_receipt` · `verify_receipt` · `verify_compliance_record` · `record_disclosure` · `record_refund` · `open_dispute` · `submit_dispute_evidence` · `adjudicate_dispute` · `get_dispute` |
@@ -83,7 +83,7 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 | llms.txt | `https://raw.githubusercontent.com/tersignhq/tersign-js/main/llms.txt` |
 | Conformance vectors (RFC 8785 + keccak256) | `https://github.com/tersignhq/tersign-js/blob/main/test/fixtures/canonical-vectors.json` |
 | Genesis verify | `npx tersign verify 0xe5874f1ffe87f0a6dd9eb157730f67b86ee4538b125fe30fcc4e165213dd3fc4 --ledger https://tersign.ai` |
-| PyPI | `tersign` — `pip install tersign` (MIT, trusted-publishing OIDC). Offline verifier: chains, chain commitments, evidence bundles. Zero dependencies, standard library only. Source: [tersignhq/tersign-py](https://github.com/tersignhq/tersign-py) |
+| PyPI | `tersign` — `pip install tersign` (Apache-2.0, trusted-publishing OIDC). Offline verifier: chains, chain commitments, evidence bundles. Zero dependencies, standard library only. Source: [tersignhq/tersign-py](https://github.com/tersignhq/tersign-py) |
 | Bundle verifier (out-of-band) | `https://tersign.ai/verify/v1/verify_bundle.py` · `keccak.py` · `secp256k1.py` · `SHA256SUMS`. Fetch the checker from here rather than trusting the copy inside a bundle you were handed |
 
 </details>
