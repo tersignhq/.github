@@ -84,7 +84,7 @@ Party statements ride along structurally segregated behind an `UNVERIFIED` marke
 | Conformance vectors (RFC 8785 + keccak256) | `https://github.com/tersignhq/tersign-js/blob/main/test/fixtures/canonical-vectors.json` |
 | Genesis verify | `npx tersign verify 0xe5874f1ffe87f0a6dd9eb157730f67b86ee4538b125fe30fcc4e165213dd3fc4 --ledger https://tersign.ai` |
 | PyPI | `tersign` — `pip install tersign` (Apache-2.0, trusted-publishing OIDC). Offline verifier: chains, chain commitments, evidence bundles. Zero dependencies, standard library only. Source: [tersignhq/tersign-py](https://github.com/tersignhq/tersign-py) |
-| Bundle verifier (out-of-band) | `https://tersign.ai/verify/v1/verify_bundle.py` · `keccak.py` · `secp256k1.py` · `SHA256SUMS`. Fetch the checker from here rather than trusting the copy inside a bundle you were handed |
+| Bundle verifier (out-of-band) | Newest release: `https://tersign.ai/verify/latest/` (`verify_bundle.py` · `keccak.py` · `secp256k1.py` · `SHA256SUMS`); every release, immutable at its content address: `https://tersign.ai/verify/releases.json`. To check an archive you were handed, fetch the release on the `base=` line in section 0 of its `VERIFY.md` (`https://tersign.ai/verify/sha256/<digest>/`, or `https://tersign.ai/verify/v1/` in earlier archives; any other address is not a published release) rather than trusting the copy inside it. A difference between the two is itself the finding unless the archive is older than the checker at that address: one built before 2026-10-07 can carry an earlier checker |
 
 </details>
 
