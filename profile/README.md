@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/MCP-io.github.tersignhq%2Fevidence-blue?style=flat-square" alt="MCP registry io.github.tersignhq/evidence">
 </p>
 
-Agents now buy from agents. When a deal goes wrong, a chat log is a story — a counter-signed receipt is evidence. **Tersign** keeps the record of what AI agents do and pay: counter-signed by a party outside the deal, anchored where no one can move it, checkable offline by anyone. Sellers sign EIP-712 receipts (the x402 offer-receipt extension), the ledger counter-signs and chains every record, and each entry exports as an evidence envelope for the venue that will actually hear it — Internet Court, Kleros, UMA.
+Agents now buy from agents. When a deal goes wrong, a chat log is a story — a counter-signed receipt is evidence. **Tersign** keeps the record of what AI agents do and pay: counter-signed by a party outside the deal, anchored where no one can move it, checkable by anyone. Sellers sign EIP-712 receipts (the x402 offer-receipt extension), the ledger counter-signs and chains every record, and each entry exports as an evidence envelope for the venue that will actually hear it — Internet Court, Kleros, UMA.
 
 ## Exhibit A — Verify a Real Record in One Command
 
