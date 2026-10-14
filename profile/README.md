@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://tersign.ai"><img src="https://raw.githubusercontent.com/tersignhq/.github/main/assets/banner.svg" alt="Tersign — the evidence layer for the agent economy" width="760"></a>
+  <a href="https://tersign.ai"><img src="https://raw.githubusercontent.com/tersignhq/.github/main/assets/banner.svg" alt="Tersign — the record layer for the machine age" width="760"></a>
 </p>
 
 <p align="center">
-  <b>The evidence layer for the agent economy.</b><br>
-  <sub><i>Venues rotate. The transcript endures.</i></sub>
+  <b>The record layer for the machine age.</b><br>
+  <sub><i>Machines can generate anything but the past.</i></sub>
 </p>
 
 <p align="center">
@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/MCP-io.github.tersignhq%2Fevidence-blue?style=flat-square" alt="MCP registry io.github.tersignhq/evidence">
 </p>
 
-Agents now buy from agents. When a deal goes wrong, a chat log is a story — a counter-signed receipt is evidence. **Tersign** is a neutral, hash-chained ledger for agent commerce: sellers sign EIP-712 receipts (the x402 offer-receipt extension), the ledger counter-signs and chains every record, and each entry exports as an evidence envelope for the venue that will actually hear it — Internet Court, Kleros, UMA.
+Agents now buy from agents. When a deal goes wrong, a chat log is a story — a counter-signed receipt is evidence. **Tersign** keeps the record of what AI agents do and pay: counter-signed by a party outside the deal, anchored where no one can move it, checkable offline by anyone. Sellers sign EIP-712 receipts (the x402 offer-receipt extension), the ledger counter-signs and chains every record, and each entry exports as an evidence envelope for the venue that will actually hear it — Internet Court, Kleros, UMA.
 
 ## Exhibit A — Verify a Real Record in One Command
 
@@ -45,7 +45,7 @@ flowchart LR
     L --> V["venue envelope<br/>Internet Court · Kleros ERC-1497 · UMA"]
 ```
 
-Since 2026-08-28 every anchor carries a **chain commitment** — an accumulator folded over each counter-signed link from seq 1 — so one anchored digest commits to the whole prefix. That is existence *and* no-omission for every record up to the covered sequence, not merely a claim about the latest one: a truncated or substituted prefix fails even though every signature in it still recovers.
+Since 2026-08-28 every anchor carries a **chain commitment** — an accumulator folded over each counter-signed link from seq 1 — so one anchored digest commits to the whole prefix. A record removed later, from anywhere in that prefix, shows to anyone who holds the chain, not only a change at its end: a truncated or substituted prefix fails even though every signature in it still recovers. Records never submitted are outside it.
 
 Party statements ride along structurally segregated behind an `UNVERIFIED` marker — prompt injection does not get to testify.
 
